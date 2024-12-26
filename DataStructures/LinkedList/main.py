@@ -27,10 +27,20 @@ class LinkedList:
             cur_node = cur_node.next
         print("None")
     
-
+    def length(self):
+        if self.head is None:
+            print(0)
+            return
+        cur_node = self.head
+        total=0
+        while cur_node:
+            total+=1
+            cur_node=cur_node.next
+        print(total)
 my_linkedlist =  LinkedList()
 my_linkedlist.append(1)
 my_linkedlist.append(2)
 my_linkedlist.append(3)
 my_linkedlist.append(4)
 my_linkedlist.display()
+my_linkedlist.length()
