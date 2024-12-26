@@ -37,10 +37,43 @@ class LinkedList:
             total+=1
             cur_node=cur_node.next
         print(total)
+        return total
+        
+    def get(self,index):
+        if index >= self.length():
+            print("ERROR: 'Get' index out of range" )
+            return None
+        cur_idx = 0
+        cur_node = self.head
+        while True:
+            cur_node = cur_node.next
+            if cur_idx == index: return cur_node.data
+            cur_idx +=1
+        
+        
+    def delete(self,key):
+        current= self.head
+        if current and current.data == key:
+            self.head = current.next
+            current= None
+            return
+        previous = None
+        while current and current.data != key:
+            previous = current
+            current = current.next
+        if current is None:
+            print(f"Value {key} not found in the linked list.")
+            return
+        previous.next= current.next
+        current = None
+        
 my_linkedlist =  LinkedList()
 my_linkedlist.append(1)
 my_linkedlist.append(2)
 my_linkedlist.append(3)
 my_linkedlist.append(4)
+my_linkedlist.append(6)
+my_linkedlist.get(3)
+#my_linkedlist.delete(4)
 my_linkedlist.display()
 my_linkedlist.length()
